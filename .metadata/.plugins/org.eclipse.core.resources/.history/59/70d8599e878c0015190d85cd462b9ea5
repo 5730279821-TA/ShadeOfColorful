@@ -1,0 +1,25 @@
+package render;
+
+import java.awt.Graphics2D;
+
+public class Background implements IRenderable {
+
+	@Override
+	public void draw(Graphics2D g2d) {
+		g2d.drawImage(Resource.MainBG,0,0,null);
+		
+	}
+
+	@Override
+	public boolean IsVisible() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public int getZ() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+			
+}

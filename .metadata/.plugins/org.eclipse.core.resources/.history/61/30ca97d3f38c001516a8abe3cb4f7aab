@@ -1,0 +1,211 @@
+package render;
+
+import java.awt.Font;
+import java.awt.image.BufferedImage;
+
+import javax.imageio.ImageIO;
+
+public class Resource {
+	public static final Font standardFont = new Font("Tahoma",Font.BOLD,30);
+	//not complete
+//	public static String[] index_S0 = {"Black_S0","Rbright_S0","Bbright_S0","Bdark_S0","Gbright_S0","Gdark_S0"};
+//	public static String[] index_S1 = new String[21];
+	
+	
+	//set1
+	public static BufferedImage BlueButton,BrightButton,DarkButton,GreenButton,RedButton;
+	public static BufferedImage Bbright_B,Bbright_R,Bbright_S0,Bbright_S1,Bbright_W0;
+	public static BufferedImage Bdark_B,Bdark_R,Bdark_S0,Bdark_S1,Bdark_W0;
+	public static BufferedImage Gbright_B,Gbright_R,Gbright_S0,Gbright_S1,Gbright_W0;
+	public static BufferedImage Gdark_B,Gdark_R,Gdark_S0,Gdark_S1,Gdark_W0;
+	public static BufferedImage Rbright_B,Rbright_R,Rbright_S0,Rbright_S1,Rbright_W0;
+	public static BufferedImage Rdark_B,Rdark_R,Rdark_S0,Rdark_S1,Rdark_W0;
+	//set3
+	public static BufferedImage Black_B,Black_R,Black_S0,Black_S1,Black_W0;
+	public static BufferedImage RGBbright_B,RGBbright_R,RGBbright_S0,RGBbright_S1,RGBbright_W0;
+	public static BufferedImage RGBdark_B,RGBdark_R,RGBdark_S0,RGBdark_S1,RGBdark_W0;
+	//set2(DiffTone) //nameNOTsameFilename
+	public static BufferedImage GbrightBdark_B,GbrightBdark_R,GbrightBdark_S0,GbrightBdark_S1,GbrightBdark_W0;
+	public static BufferedImage GdarkBbright_B,GdarkBbright_R,GdarkBbright_S0,GdarkBbright_S1,GdarkBbright_W0;
+	public static BufferedImage RbrightBdark_B,RbrightBdark_R,RbrightBdark_S0,RbrightBdark_S1,RbrightBdark_W0;
+	public static BufferedImage RbrightGdark_B,RbrightGdark_R,RbrightGdark_S0,RbrightGdark_S1,RbrightGdark_W0;
+	public static BufferedImage RdarkBbright_B,RdarkBbright_R,RdarkBbright_S0,RdarkBbright_S1,RdarkBbright_W0;
+	public static BufferedImage RdarkGbright_B,RdarkGbright_R,RdarkGbright_S0,RdarkGbright_S1,RdarkGbright_W0;
+	//set2(SameTone)
+	public static BufferedImage GBbright_B,GBbright_R,GBbright_S0,GBbright_S1,GBbright_W0;
+	public static BufferedImage GBdark_B,GBdark_R,GBdark_S0,GBdark_S1,GBdark_W0;
+	public static BufferedImage RBbright_B,RBbright_R,RBbright_S0,RBbright_S1,RBbright_W0;
+	public static BufferedImage RBdark_B,RBdark_R,RBdark_S0,RBdark_S1,RBdark_W0;
+	public static BufferedImage RGbright_B,RGbright_R,RGbright_S0,RGbright_S1,RGbright_W0;
+	public static BufferedImage RGdark_B,RGdark_R,RGdark_S0,RGdark_S1,RGdark_W0;
+	public static BufferedImage ScreenBG;
+	
+	static{
+		try{
+			ClassLoader cloader = RenderableHolder.class.getClassLoader();
+			
+			ScreenBG = ImageIO.read(cloader.getResource("image/ScreenBG2.png"));
+			
+			BlueButton = ImageIO.read(cloader.getResource("image/BlueButton.png"));
+			BrightButton = ImageIO.read(cloader.getResource("image/BrightButton.png"));
+			DarkButton = ImageIO.read(cloader.getResource("image/DarkButton.png"));
+			GreenButton = ImageIO.read(cloader.getResource("image/GreenButton.png"));
+			RedButton = ImageIO.read(cloader.getResource("image/RedButton.png"));
+			
+			Bbright_B = ImageIO.read(cloader.getResource("image/Bbright_B.png"));
+			Bbright_R = ImageIO.read(cloader.getResource("image/Bbright_R.png"));
+			Bbright_S0 = ImageIO.read(cloader.getResource("image/Bbright_S0.png"));
+			Bbright_S1 = ImageIO.read(cloader.getResource("image/Bbright_S1.png"));
+			Bbright_W0 = ImageIO.read(cloader.getResource("image/Bbright_W0.png"));
+			
+			Bdark_B = ImageIO.read(cloader.getResource("image/Bdark_B.png"));
+			Bdark_R = ImageIO.read(cloader.getResource("image/Bdark_R.png"));
+			Bdark_S0 = ImageIO.read(cloader.getResource("image/Bdark_S0.png"));
+			Bdark_S1 = ImageIO.read(cloader.getResource("image/Bdark_S1.png"));
+			Bdark_W0 = ImageIO.read(cloader.getResource("image/Bdark_W0.png"));
+			
+			Gbright_B = ImageIO.read(cloader.getResource("image/Gbright_B.png"));
+			Gbright_R = ImageIO.read(cloader.getResource("image/Gbright_R.png"));
+			Gbright_S0 = ImageIO.read(cloader.getResource("image/Gbright_S0.png"));
+			Gbright_S1 = ImageIO.read(cloader.getResource("image/Gbright_S1.png"));
+			Gbright_W0 = ImageIO.read(cloader.getResource("image/Gbright_W0.png"));
+			
+			Gdark_B = ImageIO.read(cloader.getResource("image/Gdark_B.png"));
+			Gdark_R = ImageIO.read(cloader.getResource("image/Gdark_R.png"));
+			Gdark_S0 = ImageIO.read(cloader.getResource("image/Gdark_S0.png"));
+			Gdark_S1 = ImageIO.read(cloader.getResource("image/Gdark_S1.png"));
+			Gdark_W0 = ImageIO.read(cloader.getResource("image/Gdark_W0.png"));
+			
+			Rbright_B = ImageIO.read(cloader.getResource("image/Rbright_B.png"));
+			Rbright_R = ImageIO.read(cloader.getResource("image/Rbright_R.png"));
+			Rbright_S0 = ImageIO.read(cloader.getResource("image/Rbright_S0.png"));
+			Rbright_S1 = ImageIO.read(cloader.getResource("image/Rbright_S1.png"));
+			Rbright_W0 = ImageIO.read(cloader.getResource("image/Rbright_W0.png"));
+			
+			Rdark_B = ImageIO.read(cloader.getResource("image/Rdark_B.png"));
+			Rdark_R = ImageIO.read(cloader.getResource("image/Rdark_R.png"));
+			Rdark_S0 = ImageIO.read(cloader.getResource("image/Rdark_S0.png"));
+			Rdark_S1 = ImageIO.read(cloader.getResource("image/Rdark_S1.png"));
+			Rdark_W0 = ImageIO.read(cloader.getResource("image/Rdark_W0.png"));
+			
+			Black_B = ImageIO.read(cloader.getResource("image/Black_B.png"));
+			Black_R = ImageIO.read(cloader.getResource("image/Black_R.png"));
+			Black_S0 = ImageIO.read(cloader.getResource("image/Black_S0.png"));
+			Black_S1 = ImageIO.read(cloader.getResource("image/Black_S1.png"));
+			Black_W0 = ImageIO.read(cloader.getResource("image/Black_W0.png"));
+			
+			RGBbright_B = ImageIO.read(cloader.getResource("image/RGBbright_B.png"));
+			RGBbright_R = ImageIO.read(cloader.getResource("image/RGBbright_R.png"));
+			RGBbright_S0 = ImageIO.read(cloader.getResource("image/RGBbright_S0.png"));
+			RGBbright_S1 = ImageIO.read(cloader.getResource("image/RGBbright_S1.png"));
+			RGBbright_W0 = ImageIO.read(cloader.getResource("image/RGBbright_W0.png"));
+			
+			RGBdark_B = ImageIO.read(cloader.getResource("image/RGBdark_B.png"));
+			RGBdark_R = ImageIO.read(cloader.getResource("image/RGBdark_R.png"));
+			RGBdark_S0 = ImageIO.read(cloader.getResource("image/RGBdark_S0.png"));
+			RGBdark_S1 = ImageIO.read(cloader.getResource("image/RGBdark_S1.png"));
+			RGBdark_W0 = ImageIO.read(cloader.getResource("image/RGBdark_W0.png"));
+			
+			GbrightBdark_B = ImageIO.read(cloader.getResource("image/GbrightBdark_B.png"));
+			GbrightBdark_R = ImageIO.read(cloader.getResource("image/GbrightBdark_R.png"));
+			GbrightBdark_S0 = ImageIO.read(cloader.getResource("image/GbrightBdark_S0.png"));
+			GbrightBdark_S1 = ImageIO.read(cloader.getResource("image/GbrightBdark_S1.png"));
+			GbrightBdark_W0 = ImageIO.read(cloader.getResource("image/GbrightBdark_W0.png"));
+			
+			GdarkBbright_B = ImageIO.read(cloader.getResource("image/GdarkBbright_B.png"));
+			GdarkBbright_R = ImageIO.read(cloader.getResource("image/GdarkBbright_R.png"));
+			GdarkBbright_S0 = ImageIO.read(cloader.getResource("image/GdarkBbright_S0.png"));
+			GdarkBbright_S1 = ImageIO.read(cloader.getResource("image/GdarkBbright_S1.png"));
+			GdarkBbright_W0 = ImageIO.read(cloader.getResource("image/GdarkBbright_W0.png"));
+
+			RbrightBdark_B = ImageIO.read(cloader.getResource("image/RbrightBdark_B.png"));
+			RbrightBdark_R = ImageIO.read(cloader.getResource("image/RbrightBdark_R.png"));
+			RbrightBdark_S0 = ImageIO.read(cloader.getResource("image/RbrightBdark_S0.png"));
+			RbrightBdark_S1 = ImageIO.read(cloader.getResource("image/RbrightBdark_S1.png"));
+			RbrightBdark_W0 = ImageIO.read(cloader.getResource("image/RbrightBdark_W0.png"));
+			
+			RbrightGdark_B = ImageIO.read(cloader.getResource("image/RbrightGdark_B.png"));
+			RbrightGdark_R = ImageIO.read(cloader.getResource("image/RbrightGdark_R.png"));
+			RbrightGdark_S0 = ImageIO.read(cloader.getResource("image/RbrightGdark_S0.png"));
+			RbrightGdark_S1 = ImageIO.read(cloader.getResource("image/RbrightGdark_S1.png"));
+			RbrightGdark_W0 = ImageIO.read(cloader.getResource("image/RbrightGdark_W0.png"));
+			
+			RdarkBbright_B = ImageIO.read(cloader.getResource("image/RdarkBbright_B.png"));
+			RdarkBbright_R = ImageIO.read(cloader.getResource("image/RdarkBbright_R.png"));
+			RdarkBbright_S0 = ImageIO.read(cloader.getResource("image/RdarkBbright_S0.png"));
+			RdarkBbright_S1 = ImageIO.read(cloader.getResource("image/RdarkBbright_S1.png"));
+			RdarkBbright_W0 = ImageIO.read(cloader.getResource("image/RdarkBbright_W0.png"));
+			
+			RdarkGbright_B = ImageIO.read(cloader.getResource("image/RdarkGbright_B.png"));
+			RdarkGbright_R = ImageIO.read(cloader.getResource("image/RdarkGbright_R.png"));
+			RdarkGbright_S0 = ImageIO.read(cloader.getResource("image/RdarkGbright_S0.png"));
+			RdarkGbright_S1 = ImageIO.read(cloader.getResource("image/RdarkGbright_S1.png"));
+			RdarkGbright_W0 = ImageIO.read(cloader.getResource("image/RdarkGbright_W0.png"));
+			
+			GBbright_B = ImageIO.read(cloader.getResource("image/GBbright_B.png"));
+			GBbright_R = ImageIO.read(cloader.getResource("image/GBbright_R.png"));
+			GBbright_S0 = ImageIO.read(cloader.getResource("image/GBbright_S0.png"));
+			GBbright_S1 = ImageIO.read(cloader.getResource("image/GBbright_S1.png"));
+			GBbright_W0 = ImageIO.read(cloader.getResource("image/GBbright_W0.png"));
+			
+			GBdark_B = ImageIO.read(cloader.getResource("image/GBdark_B.png"));
+			GBdark_R = ImageIO.read(cloader.getResource("image/GBdark_R.png"));
+			GBdark_S0 = ImageIO.read(cloader.getResource("image/GBdark_S0.png"));
+			GBdark_S1 = ImageIO.read(cloader.getResource("image/GBdark_S1.png"));
+			GBdark_W0 = ImageIO.read(cloader.getResource("image/GBdark_W0.png"));
+			
+			RBbright_B = ImageIO.read(cloader.getResource("image/RBbright_B.png"));
+			RBbright_R = ImageIO.read(cloader.getResource("image/RBbright_R.png"));
+			RBbright_S0 = ImageIO.read(cloader.getResource("image/RBbright_S0.png"));
+			RBbright_S1 = ImageIO.read(cloader.getResource("image/RBbright_S1.png"));
+			RBbright_W0 = ImageIO.read(cloader.getResource("image/RBbright_W0.png"));
+			
+			RBdark_B = ImageIO.read(cloader.getResource("image/RBdark_B.png"));
+			RBdark_R = ImageIO.read(cloader.getResource("image/RBdark_R.png"));
+			RBdark_S0 = ImageIO.read(cloader.getResource("image/RBdark_S0.png"));
+			RBdark_S1 = ImageIO.read(cloader.getResource("image/RBdark_S1.png"));
+			RBdark_W0 = ImageIO.read(cloader.getResource("image/RBdark_W0.png"));
+			
+			RGbright_B = ImageIO.read(cloader.getResource("image/RGbright_B.png"));
+			RGbright_R = ImageIO.read(cloader.getResource("image/RGbright_R.png"));
+			RGbright_S0 = ImageIO.read(cloader.getResource("image/RGbright_S0.png"));
+			RGbright_S1 = ImageIO.read(cloader.getResource("image/RGbright_S1.png"));
+			RGbright_W0 = ImageIO.read(cloader.getResource("image/RGbright_W0.png"));
+			
+			RGdark_B = ImageIO.read(cloader.getResource("image/RGdark_B.png"));
+			RGdark_R = ImageIO.read(cloader.getResource("image/RGdark_R.png"));
+			RGdark_S0 = ImageIO.read(cloader.getResource("image/RGdark_S0.png"));
+			RGdark_S1 = ImageIO.read(cloader.getResource("image/RGdark_S1.png"));
+			RGdark_W0 = ImageIO.read(cloader.getResource("image/RGdark_W0.png"));
+			
+			
+		}
+		catch(Exception e){
+//			BlueButton,BrightButton,DarkButton,GreenButton,RedButton
+//			Bbright_B,Bbright_R,Bbright_S0,Bbright_S1,Bbright_W0
+//			Bdark_B,Bdark_R,Bdark_S0,Bdark_S1,Bdark_W0
+//			Gbright_B,Gbright_R,Gbright_S0,Gbright_S1,Gbright_W0
+//			Gdark_B,Gdark_R,Gdark_S0,Gdark_S1,Gdark_W0
+//			Rbright_B,Rbright_R,Rbright_S0,Rbright_S1,Rbright_W0
+//			Rdark_B,Rdark_R,Rdark_S0,Rdark_S1,Rdark_W0
+//			
+//			Black_B,Black_R,Black_S0,Black_S1,Black_W0
+//			RGBbright_B,RGBbright_R,RGBbright_S0,RGBbright_S1,RGBbright_W0
+//			RGBdark_B,RGBdark_R,RGBdark_S0,RGBdark_S1,RGBdark_W0
+//			
+//			GbrightBdark_B,GbrightBdark_R,GbrightBdark_S0,GbrightBdark_S1,GbrightBdark_W0
+//			GdarkBbright_B,GdarkBbright_R,GdarkBbright_S0,GdarkBbright_S1,GdarkBbright_W0
+//			RbrightBdark_B,RbrightBdark_R,RbrightBdark_S0,RbrightBdark_S1,RbrightBdark_W0
+//			RbrightGdark_B,RbrightGdark_R,RbrightGdark_S0,RbrightGdark_S1,RbrightGdark_W0
+//			RdarkBbright_B,RdarkBbright_R,RdarkBbright_S0,RdarkBbright_S1,RdarkBbright_W0
+//			RdarkGbright_B,RdarkGbright_R,RdarkGbright_S0,RdarkGbright_S1,RdarkGbright_W0
+//			
+//			GBbright_B,GBbright_R,GBbright_S0,GBbright_S1,GBbright_W0
+//			GBdark_B,GBdark_R,GBdark_S0,GBdark_S1,GBdark_W0
+//			RBbright_B,RBbright_R,RBbright_S0,RBbright_S1,RBbright_W0
+//			RBdark_B,RBdark_R,RBdark_S0,RBdark_S1,RBdark_W0
+//			RGbright_B,RGbright_R,RGbright_S0,RGbright_S1,RGbright_W0
+//			RGdark_B,RGdark_R,RGdark_S0,RGdark_S1,RGdark_W0
+		}
+	}
+}

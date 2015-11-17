@@ -1,0 +1,32 @@
+package render;
+
+import java.awt.Graphics2D;
+
+public class Button implements IRenderable {
+	
+	public Button(){
+		
+	}
+	
+	@Override
+	public void draw(Graphics2D g2d) {
+		g2d.drawImage(Resource.RedButton,80,350,null);
+		g2d.drawImage(Resource.GreenButton,80,550,null);
+		g2d.drawImage(Resource.BlueButton,320,550,null);
+		g2d.drawImage(Resource.DarkButton,880,555,null);
+		g2d.drawImage(Resource.BrightButton,1100,560,null);
+	}
+
+	@Override
+	public boolean IsVisible() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public int getZ() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+			
+}

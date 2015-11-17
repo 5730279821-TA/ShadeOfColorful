@@ -1,0 +1,166 @@
+package render;
+
+import java.awt.Graphics2D;
+
+public class Button implements IRenderable {
+	
+	private static int R=0;
+	private static int G=0;
+	private static int B=0;
+	private static int Dark=0;
+	private static int Bright=0;
+	
+	public Button(){
+		
+	}
+	
+	
+	
+	public int getR() {
+		return R;
+	}
+
+
+
+	public void setR(int r) {
+		R = r;
+	}
+
+
+
+	public int getG() {
+		return G;
+	}
+
+
+
+	public void setG(int g) {
+		G = g;
+	}
+
+
+
+	public int getB() {
+		return B;
+	}
+
+
+
+	public void setB(int b) {
+		B = b;
+	}
+
+
+
+	public int getDark() {
+		return Dark;
+	}
+
+
+
+	public void setDark(int dark) {
+		Dark = dark;
+	}
+
+
+
+	public int getBright() {
+		return Bright;
+	}
+
+
+
+	public void setBright(int bright) {
+		Bright = bright;
+	}
+
+
+
+	public static void update(int key){
+		if(key==0){
+			//reset
+		}
+		else{
+			
+		}
+		if(key==1){
+			setR(1);
+		}
+		else{
+			R=0;
+		}
+		if(key==2){
+			G=1;
+		}
+		else{
+			G=0;
+		}
+		if(key==3){
+			B=1;
+		}
+		else{
+			B=0;
+		}
+		if(key==4){
+			Bright=1;
+		}
+		else{
+			Bright=0;
+		}
+		if(key==5){
+			Dark=1;
+		}
+		else{
+			Dark=0;
+		}
+	}
+	
+	@Override
+	public void draw(Graphics2D g2d) {
+		if(getR()==0){
+			g2d.drawImage(Resource.RedButton,80,350,null);
+		}
+		else{
+			g2d.drawImage(Resource.RedButton1,80,350,null);
+		}
+		if(this.G==0){
+			g2d.drawImage(Resource.GreenButton,80,550,null);
+		}
+		else{
+			g2d.drawImage(Resource.GreenButton1,80,550,null);
+		}
+		if(this.B==0){
+			g2d.drawImage(Resource.BlueButton,320,550,null);
+		}
+		else{
+			g2d.drawImage(Resource.BlueButton1,320,550,null);
+		}
+		if(Bright==0){
+			g2d.drawImage(Resource.BrightButton,1100,560,null);
+		}
+		else{
+			g2d.drawImage(Resource.BrightButton1,1100,560,null);
+		}
+		if(Dark==0){
+			g2d.drawImage(Resource.DarkButton,880,555,null);
+		}
+		else{
+			g2d.drawImage(Resource.DarkButton1,880,555,null);
+		}
+		
+		
+	}
+
+	@Override
+	public boolean IsVisible() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public int getZ() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+			
+}

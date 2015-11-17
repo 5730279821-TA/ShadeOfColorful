@@ -1,0 +1,102 @@
+package entity;
+
+import java.awt.Graphics2D;
+import java.util.concurrent.CopyOnWriteArrayList;
+
+import render.IRenderable;
+import render.Resource;
+
+public class Sheep implements IRenderable{
+	private int SheepColor;
+	private int SheepIndex;
+	private int Score;
+	private boolean IsShot;
+	private Beam beam = new Beam(0);
+	
+	public Sheep(){
+		this.SheepColor=0;
+		this.SheepIndex=0;
+		this.IsShot=false;
+	}
+	
+	int state = 0;
+	int pColor = 0;
+
+	public void setColor(int state){
+		//nColor will be in range 0-14
+		
+		if(pColor==1){
+			if(state==3) pColor=7;
+			if(state==4) pColor=19;
+			if(state==5) pColor=8;
+			if(state==6) pColor=15;
+		}
+		
+		else if(pColor==2){
+			if(state==3) pColor=16;
+			if(state==4) pColor=10;
+			if(state==5) pColor=18;
+			if(state==6) pColor=11;
+		}
+		
+		else if(pColor==3){
+			if(state==1) pColor=7;
+			if(state==2) pColor=16;
+			if(state==5) pColor=9;
+			if(state==6) pColor=17;
+		}
+		
+		else if(pColor==4){
+			if(state==1) pColor=19;
+			if(state==2) pColor=10;
+			if(state==5) pColor=20;
+			if(state==6) pColor=12;
+		}
+
+		else if(pColor==5){
+			if(state==1) pColor=8;
+			if(state==2) pColor=18;
+			if(state==3) pColor=9;
+			if(state==4) pColor=20;
+		}
+
+		else if(pColor==6){
+			if(state==1) pColor=15;
+			if(state==2) pColor=11;
+			if(state==3) pColor=17;
+			if(state==4) pColor=12;
+		}
+		
+		else{
+			pColor = state;
+		}
+
+	}
+	
+	protected void update(int nColor){
+		setColor(nColor);
+	}
+	
+	@Override
+	public void draw(Graphics2D g2d) {
+		g2d.drawImage(Resource.Black_S0,320,320,null);
+		
+	}
+
+	@Override
+	public boolean IsVisible() {
+		return true;
+	}
+
+	@Override
+	public int getZ() {
+		return 3;
+	}
+
+
+
+	
+	
+	
+	
+}
