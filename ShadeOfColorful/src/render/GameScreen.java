@@ -21,12 +21,20 @@ public class GameScreen extends JComponent {
 
 			@Override
 			public void keyTyped(KeyEvent e) {
-				// TODO Auto-generated method stub
 
 			}
 
 			@Override
 			public void keyReleased(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+					try {
+						Thread.sleep(100);
+						Sheep.setSheepIndex(0);
+					} catch (InterruptedException r) {
+						// e.printStackTrace();
+					}
+
+				}
 				if (e.getKeyCode() == KeyEvent.VK_Q) {
 					Button.update(6);
 					InputUtility.keyRelease(e);
@@ -63,7 +71,7 @@ public class GameScreen extends JComponent {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-					// get shot
+					Sheep.setSheepIndex(1);
 				}
 				if (e.getKeyCode() == KeyEvent.VK_Q) {
 					Button.update(0);

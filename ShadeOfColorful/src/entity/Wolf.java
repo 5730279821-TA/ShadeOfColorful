@@ -27,7 +27,7 @@ public class Wolf implements IRenderable{
 
 	@Override
 	public void draw(Graphics2D g2d) {
-		g2d.drawImage(Resource.Bbright_W0,null,720,400);
+		g2d.drawImage(Resource.Bbright_W0,null,0,0);
 		
 	}
 

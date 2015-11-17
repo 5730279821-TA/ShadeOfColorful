@@ -13,7 +13,7 @@ public class Sheep implements IRenderable {
 	private static int SheepIndex;
 	private static int Score;
 	private static boolean IsShot;
-	private static Beam beam = new Beam(0);
+	private static Beam beam;
 	private static int state = 0;
 
 	public Sheep() {
@@ -217,7 +217,7 @@ public class Sheep implements IRenderable {
 				g2d.drawImage(Resource.RbrightBdark_S0, 300, 340, null);
 			else if (Sheep.getSheepColor() == 20)
 				g2d.drawImage(Resource.GbrightBdark_S0, 300, 340, null);
-		} else {
+		} else if(SheepIndex==1) {
 			if (Sheep.getSheepColor() == 0)
 				g2d.drawImage(Resource.Black_S1, 300, 340, null);
 			else if (Sheep.getSheepColor() == 1)
@@ -235,13 +235,13 @@ public class Sheep implements IRenderable {
 			else if (Sheep.getSheepColor() == 7)
 				g2d.drawImage(Resource.RBbright_S1, 300, 340, null);
 			else if (Sheep.getSheepColor() == 8)
-				g2d.drawImage(Resource.RGbright_S0, 300, 340, null);
+				g2d.drawImage(Resource.RGbright_S1, 300, 340, null);
 			else if (Sheep.getSheepColor() == 9)
 				g2d.drawImage(Resource.GBbright_S1, 300, 340, null);
 			else if (Sheep.getSheepColor() == 10)
 				g2d.drawImage(Resource.RBdark_S1, 300, 340, null);
 			else if (Sheep.getSheepColor() == 11)
-				g2d.drawImage(Resource.RGdark_S0, 300, 340, null);
+				g2d.drawImage(Resource.RGdark_S1, 300, 340, null);
 			else if (Sheep.getSheepColor() == 12)
 				g2d.drawImage(Resource.GBdark_S1, 300, 340, null);
 			else if (Sheep.getSheepColor() == 13)

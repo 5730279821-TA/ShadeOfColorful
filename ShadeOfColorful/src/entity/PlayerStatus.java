@@ -18,12 +18,12 @@ public class PlayerStatus implements IRenderable {
 	@Override
 	public boolean IsVisible() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public int getZ() {
 		// TODO Auto-generated method stub
-		return 0;
+		return Integer.MAX_VALUE;
 	}
 }

@@ -7,7 +7,6 @@ import render.Button;
 
 public class InputUtility {
 
-
 	private static boolean reset = false;
 	private static boolean red = false;
 	private static boolean green = false;
@@ -15,7 +14,6 @@ public class InputUtility {
 	private static boolean bright = false;
 	private static boolean dark = false;
 	private static boolean space = false;
-
 
 	// getter & setter
 
@@ -75,69 +73,65 @@ public class InputUtility {
 		InputUtility.space = space;
 	}
 
-
-
-	public static void keyPressed(KeyEvent e){
-		if(e.getKeyCode()==KeyEvent.VK_SPACE){
+	public static void keyPressed(KeyEvent e) {
+		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 			InputUtility.setSpace(true);
 		}
-		if(e.getKeyCode()==KeyEvent.VK_Q){
+		if (e.getKeyCode() == KeyEvent.VK_Q) {
 			InputUtility.setReset(true);
-			
+
 		}
-		if(e.getKeyCode()==KeyEvent.VK_W){
+		if (e.getKeyCode() == KeyEvent.VK_W) {
 			InputUtility.setRed(true);
-			
+
 		}
-		if(e.getKeyCode()==KeyEvent.VK_E){
+		if (e.getKeyCode() == KeyEvent.VK_E) {
 			InputUtility.setGreen(true);
-			
+
 		}
-		if(e.getKeyCode()==KeyEvent.VK_R){
+		if (e.getKeyCode() == KeyEvent.VK_R) {
 			InputUtility.setBlue(true);
-			
+
 		}
-		if(e.getKeyCode()==KeyEvent.VK_O){
+		if (e.getKeyCode() == KeyEvent.VK_O) {
 			InputUtility.setBright(true);
-			
+
 		}
-		if(e.getKeyCode()==KeyEvent.VK_I){
+		if (e.getKeyCode() == KeyEvent.VK_I) {
 			InputUtility.setDark(true);
-			
+
 		}
 	}
 
-	
-
 	public static void keyRelease(KeyEvent e) {
-		if(e.getKeyCode()==KeyEvent.VK_SPACE){
+		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 			InputUtility.setSpace(false);
 		}
-		if(e.getKeyCode()==KeyEvent.VK_Q){
-			if(InputUtility.isReset()){
+		if (e.getKeyCode() == KeyEvent.VK_Q) {
+			if (InputUtility.isReset()) {
 				Sheep.setColor(0);
 			}
 			InputUtility.setReset(false);
 		}
-		if(e.getKeyCode()==KeyEvent.VK_W){
+		if (e.getKeyCode() == KeyEvent.VK_W) {
 			InputUtility.setRed(false);
 		}
-		if(e.getKeyCode()==KeyEvent.VK_E){
+		if (e.getKeyCode() == KeyEvent.VK_E) {
 			InputUtility.setGreen(false);
 		}
-		if(e.getKeyCode()==KeyEvent.VK_R){
+		if (e.getKeyCode() == KeyEvent.VK_R) {
 			InputUtility.setBlue(false);
 		}
-		if(e.getKeyCode()==KeyEvent.VK_O){
+		if (e.getKeyCode() == KeyEvent.VK_O) {
 			InputUtility.setBright(false);
 		}
-		if(e.getKeyCode()==KeyEvent.VK_I){
+		if (e.getKeyCode() == KeyEvent.VK_I) {
 			InputUtility.setDark(false);
 		}
 	}
-	
+
 	public static void Updatestate() {
-		
+
 		// RedBright
 		if (red == true && green == false && blue == false && bright == true
 				&& dark == false && reset == false) {
@@ -172,7 +166,7 @@ public class InputUtility {
 		else if (red == false && green == true && blue == false
 				&& bright == false && dark == true && reset == false) {
 			Sheep.setState(6);
-			
+
 		}
 
 		// PinkBright
@@ -221,11 +215,10 @@ public class InputUtility {
 		else if (red == true && green == true && blue == true
 				&& bright == false && dark == true && reset == false) {
 			Sheep.setState(14);
-		}
-		else{
+		} else {
 			Sheep.setState(15);
 		}
-	
+
 	}
 
 }

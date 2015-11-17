@@ -12,6 +12,7 @@ public class GameLogic {
 	protected Sheep sheep;
 	protected PlayerStatus playerStatus;
 	protected Button button;
+	protected Beam beam;
 	protected GameBackground bg;
 	protected List<Wolf> wolves;
 	private static final int SPAWN_DELAY = 100;
@@ -21,11 +22,13 @@ public class GameLogic {
 		sheep = new Sheep();
 		playerStatus = new PlayerStatus();
 		button = new Button();
+		beam = new Beam();
 		bg = new GameBackground();
 		wolves = new CopyOnWriteArrayList<Wolf>();
 		RenderableHolder.getInstance().add(sheep);
 		RenderableHolder.getInstance().add(playerStatus);
 		RenderableHolder.getInstance().add(button);
+		RenderableHolder.getInstance().add(beam);
 		RenderableHolder.getInstance().add(bg);
 	}
 

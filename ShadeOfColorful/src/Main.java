@@ -30,7 +30,7 @@ public class Main {
 		while(true){
 			gc.requestFocus();
 			try{
-				Thread.sleep(20);
+				Thread.sleep(60);
 			} catch(InterruptedException e){
 				//e.printStackTrace();
 			}
