@@ -55,7 +55,7 @@ public class Beam implements IRenderable{
 
 	@Override
 	public int getZ() {
-		return 1;
+		return Integer.MAX_VALUE-1;
 	}
 
 	

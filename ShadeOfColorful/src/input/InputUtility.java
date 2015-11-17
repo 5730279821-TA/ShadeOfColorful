@@ -2,6 +2,7 @@ package input;
 
 import java.awt.event.KeyEvent;
 
+import entity.Sheep;
 import render.Button;
 
 public class InputUtility {
@@ -14,7 +15,7 @@ public class InputUtility {
 	private static boolean bright = false;
 	private static boolean dark = false;
 	private static boolean space = false;
-	private static int state = 0;
+
 
 	// getter & setter
 
@@ -74,13 +75,7 @@ public class InputUtility {
 		InputUtility.space = space;
 	}
 
-	public static int getState() {
-		return state;
-	}
 
-	public static void setState(int state) {
-		InputUtility.state = state;
-	}
 
 	public static void keyPressed(KeyEvent e){
 		if(e.getKeyCode()==KeyEvent.VK_SPACE){
@@ -102,11 +97,11 @@ public class InputUtility {
 			InputUtility.setBlue(true);
 			
 		}
-		if(e.getKeyCode()==KeyEvent.VK_I){
+		if(e.getKeyCode()==KeyEvent.VK_O){
 			InputUtility.setBright(true);
 			
 		}
-		if(e.getKeyCode()==KeyEvent.VK_O){
+		if(e.getKeyCode()==KeyEvent.VK_I){
 			InputUtility.setDark(true);
 			
 		}
@@ -119,6 +114,9 @@ public class InputUtility {
 			InputUtility.setSpace(false);
 		}
 		if(e.getKeyCode()==KeyEvent.VK_Q){
+			if(InputUtility.isReset()){
+				Sheep.setColor(0);
+			}
 			InputUtility.setReset(false);
 		}
 		if(e.getKeyCode()==KeyEvent.VK_W){
@@ -130,104 +128,104 @@ public class InputUtility {
 		if(e.getKeyCode()==KeyEvent.VK_R){
 			InputUtility.setBlue(false);
 		}
-		if(e.getKeyCode()==KeyEvent.VK_I){
+		if(e.getKeyCode()==KeyEvent.VK_O){
 			InputUtility.setBright(false);
 		}
-		if(e.getKeyCode()==KeyEvent.VK_O){
+		if(e.getKeyCode()==KeyEvent.VK_I){
 			InputUtility.setDark(false);
 		}
 	}
 	
 	public static void Updatestate() {
-
+		
 		// RedBright
 		if (red == true && green == false && blue == false && bright == true
 				&& dark == false && reset == false) {
-			state = 1;
+			Sheep.setState(1);
 		}
 
 		// RedDark
 		else if (red == true && green == false && blue == false
 				&& bright == false && dark == true && reset == false) {
-			state = 2;
+			Sheep.setState(2);
 		}
 
 		// BlueBright
 		else if (red == false && green == false && blue == true
 				&& bright == true && dark == false && reset == false) {
-			state = 3;
+			Sheep.setState(3);
 		}
 
 		// BlueDark
 		else if (red == false && green == false && blue == true
 				&& bright == false && dark == true && reset == false) {
-			state = 4;
+			Sheep.setState(4);
 		}
 
 		// GreenBright
 		else if (red == false && green == true && blue == false
 				&& bright == true && dark == false && reset == false) {
-			state = 5;
+			Sheep.setState(5);
 		}
 
 		// GreenDark
 		else if (red == false && green == true && blue == false
 				&& bright == false && dark == true && reset == false) {
-			state = 6;
+			Sheep.setState(6);
+			
 		}
 
 		// PinkBright
 		else if (red == true && green == false && blue == true
 				&& bright == true && dark == false && reset == false) {
-			state = 7;
+			Sheep.setState(7);
 		}
 
 		// YellowBright
 		else if (red == true && green == true && blue == false
 				&& bright == true && dark == false && reset == false) {
-			state = 8;
+			Sheep.setState(8);
 		}
 
 		// CyanBright
 		else if (red == false && green == true && blue == true
 				&& bright == true && dark == false && reset == false) {
-			state = 9;
+			Sheep.setState(9);
 		}
 
 		// PinkDark
 		else if (red == true && green == false && blue == true
 				&& bright == false && dark == true && reset == false) {
-			state = 10;
+			Sheep.setState(10);
 		}
 
 		// YellowDark
 		else if (red == true && green == true && blue == false
 				&& bright == false && dark == true && reset == false) {
-			state = 11;
+			Sheep.setState(11);
 		}
 
 		// CyanDark
 		else if (red == false && green == true && blue == true
 				&& bright == false && dark == true && reset == false) {
-			state = 12;
+			Sheep.setState(12);
 		}
 
 		// WhiteBright
 		else if (red == true && green == true && blue == true && bright == true
 				&& dark == false && reset == false) {
-			state = 13;
+			Sheep.setState(13);
 		}
 
 		// WhiteDark
 		else if (red == true && green == true && blue == true
 				&& bright == false && dark == true && reset == false) {
-			state = 14;
+			Sheep.setState(14);
 		}
-
-		else {
-			state = 0;
+		else{
+			Sheep.setState(15);
 		}
-
+	
 	}
 
 }

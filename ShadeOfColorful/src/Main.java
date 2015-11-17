@@ -1,5 +1,7 @@
 
 
+import input.InputUtility;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +36,7 @@ public class Main {
 			}
 			gc.repaint();
 			gl.logicUpdate();
+			InputUtility.Updatestate();
 		}
 	}
 }

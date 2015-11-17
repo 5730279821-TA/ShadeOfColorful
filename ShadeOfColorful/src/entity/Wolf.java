@@ -38,7 +38,7 @@ public class Wolf implements IRenderable{
 
 	@Override
 	public int getZ() {
-		return 3;
+		return Integer.MAX_VALUE-2;
 	}
 
 	

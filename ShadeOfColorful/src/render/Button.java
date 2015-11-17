@@ -1,6 +1,10 @@
 package render;
 
+import input.InputUtility;
+
 import java.awt.Graphics2D;
+
+import entity.Sheep;
 
 public class Button implements IRenderable {
 	
@@ -9,6 +13,7 @@ public class Button implements IRenderable {
 	private static int B=0;
 	private static int Dark=0;
 	private static int Bright=0;
+	private static int reset=0;
 	
 	public Button(){
 		
@@ -53,48 +58,104 @@ public class Button implements IRenderable {
 	public static void setBright(int bright) {
 		Bright = bright;
 	}
+	
+	public static int getReset() {
+		return reset;
+	}
+
+	public static void setReset(int reset) {
+		Button.reset = reset;
+	}
 
 	public static void update(int key){
 		if(key==0){
-			//reset
+			setReset(1);
 		}
-		else{
-			
+		else if(key==6){
+			setReset(0);
 		}
 		if(key==1){
 			setR(1);
 		}
-		else{
-			R=0;
+		else if(key==7){
+			setR(0);
 		}
 		if(key==2){
-			G=1;
+			setG(1);
 		}
-		else{
-			G=0;
+		else if(key==8){
+			setG(0);
 		}
 		if(key==3){
-			B=1;
+			setB(1);
 		}
-		else{
-			B=0;
+		else if(key==9){
+			setB(0);
 		}
 		if(key==4){
-			Bright=1;
+			setBright(1);
 		}
-		else{
-			Bright=0;
+		else if(key==10){
+			setBright(0);
 		}
 		if(key==5){
-			Dark=1;
+			setDark(1);
 		}
-		else{
-			Dark=0;
+		else if(key==11){
+			setDark(0);
 		}
 	}
 	
 	@Override
 	public void draw(Graphics2D g2d) {
+		if(getReset()==0){
+			if(Sheep.getSheepColor()==0) g2d.drawImage(Resource.Black_R,80,40,null);
+			else if(Sheep.getSheepColor()==1) g2d.drawImage(Resource.Rbright_R,80,40,null);
+			else if(Sheep.getSheepColor()==2) g2d.drawImage(Resource.Rdark_R,80,40,null);
+			else if(Sheep.getSheepColor()==3) g2d.drawImage(Resource.Bbright_R,80,40,null);
+			else if(Sheep.getSheepColor()==4) g2d.drawImage(Resource.Bdark_R,80,40,null);
+			else if(Sheep.getSheepColor()==5) g2d.drawImage(Resource.Gbright_R,80,40,null);
+			else if(Sheep.getSheepColor()==6) g2d.drawImage(Resource.Gdark_R,80,40,null);
+			else if(Sheep.getSheepColor()==7) g2d.drawImage(Resource.RBbright_R,80,40,null);
+			else if(Sheep.getSheepColor()==8) g2d.drawImage(Resource.RGbright_R,80,40,null);
+			else if(Sheep.getSheepColor()==9) g2d.drawImage(Resource.GBbright_R,80,40,null);
+			else if(Sheep.getSheepColor()==10) g2d.drawImage(Resource.RBdark_R,80,40,null);
+			else if(Sheep.getSheepColor()==11) g2d.drawImage(Resource.RGdark_R,80,40,null);
+			else if(Sheep.getSheepColor()==12) g2d.drawImage(Resource.GBdark_R,80,40,null);
+			else if(Sheep.getSheepColor()==13) g2d.drawImage(Resource.RGBbright_R,80,40,null);
+			else if(Sheep.getSheepColor()==14) g2d.drawImage(Resource.RGBdark_R,80,40,null);
+			else if(Sheep.getSheepColor()==15) g2d.drawImage(Resource.RbrightGdark_R,80,40,null);
+			else if(Sheep.getSheepColor()==16) g2d.drawImage(Resource.RdarkBbright_R,80,40,null);
+			else if(Sheep.getSheepColor()==17) g2d.drawImage(Resource.GdarkBbright_R,80,40,null);
+			else if(Sheep.getSheepColor()==18) g2d.drawImage(Resource.RdarkGbright_R,80,40,null);
+			else if(Sheep.getSheepColor()==19) g2d.drawImage(Resource.RbrightBdark_R,80,40,null);
+			else if(Sheep.getSheepColor()==20) g2d.drawImage(Resource.GbrightBdark_R,80,40,null);
+		}
+		else if(getReset()==1){
+			if(Sheep.getSheepColor()==0) g2d.drawImage(Resource.Black_R1,80,40,null);
+			else if(Sheep.getSheepColor()==1) g2d.drawImage(Resource.Rbright_R1,80,40,null);
+			else if(Sheep.getSheepColor()==2) g2d.drawImage(Resource.Rdark_R1,80,40,null);
+			else if(Sheep.getSheepColor()==3) g2d.drawImage(Resource.Bbright_R1,80,40,null);
+			else if(Sheep.getSheepColor()==4) g2d.drawImage(Resource.Bdark_R1,80,40,null);
+			else if(Sheep.getSheepColor()==5) g2d.drawImage(Resource.Gbright_R1,80,40,null);
+			else if(Sheep.getSheepColor()==6) g2d.drawImage(Resource.Gdark_R1,80,40,null);
+			else if(Sheep.getSheepColor()==7) g2d.drawImage(Resource.RBbright_R1,80,40,null);
+			else if(Sheep.getSheepColor()==8) g2d.drawImage(Resource.RGbright_R1,80,40,null);
+			else if(Sheep.getSheepColor()==9) g2d.drawImage(Resource.GBbright_R1,80,40,null);
+			else if(Sheep.getSheepColor()==10) g2d.drawImage(Resource.RBdark_R1,80,40,null);
+			else if(Sheep.getSheepColor()==11) g2d.drawImage(Resource.RGdark_R1,80,40,null);
+			else if(Sheep.getSheepColor()==12) g2d.drawImage(Resource.GBdark_R1,80,40,null);
+			else if(Sheep.getSheepColor()==13) g2d.drawImage(Resource.RGBbright_R1,80,40,null);
+			else if(Sheep.getSheepColor()==14) g2d.drawImage(Resource.RGBdark_R1,80,40,null);
+			else if(Sheep.getSheepColor()==15) g2d.drawImage(Resource.RbrightGdark_R1,80,40,null);
+			else if(Sheep.getSheepColor()==16) g2d.drawImage(Resource.RdarkBbright_R1,80,40,null);
+			else if(Sheep.getSheepColor()==17) g2d.drawImage(Resource.GdarkBbright_R1,80,40,null);
+			else if(Sheep.getSheepColor()==18) g2d.drawImage(Resource.RdarkGbright_R1,80,40,null);
+			else if(Sheep.getSheepColor()==19) g2d.drawImage(Resource.RbrightBdark_R1,80,40,null);
+			else if(Sheep.getSheepColor()==20) g2d.drawImage(Resource.GbrightBdark_R1,80,40,null);
+			
+		}
+		
 		if(getR()==0){
 			g2d.drawImage(Resource.RedButton,80,350,null);
 		}
@@ -138,7 +199,7 @@ public class Button implements IRenderable {
 	@Override
 	public int getZ() {
 		// TODO Auto-generated method stub
-		return 0;
+		return Integer.MAX_VALUE;
 	}
 			
 }
