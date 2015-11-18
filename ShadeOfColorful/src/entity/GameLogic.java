@@ -14,7 +14,8 @@ public class GameLogic {
 	protected Button button;
 	protected Beam beam;
 	protected GameBackground bg;
-	protected List<Wolf> wolves;
+//	protected List<Wolf> wolves;
+	protected Wolf wolf;
 	private static final int SPAWN_DELAY = 100;
 	private int spawnDelayCounter = 0;
 
@@ -24,12 +25,14 @@ public class GameLogic {
 		button = new Button();
 		beam = new Beam();
 		bg = new GameBackground();
-		wolves = new CopyOnWriteArrayList<Wolf>();
+//		wolves = new CopyOnWriteArrayList<Wolf>();
+		wolf = new Wolf(0,100,1,810,310);
 		RenderableHolder.getInstance().add(sheep);
 		RenderableHolder.getInstance().add(playerStatus);
 		RenderableHolder.getInstance().add(button);
 		RenderableHolder.getInstance().add(beam);
 		RenderableHolder.getInstance().add(bg);
+		RenderableHolder.getInstance().add(wolf);
 	}
 
 	public static GameLogic getInstance() {

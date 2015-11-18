@@ -39,7 +39,7 @@ public class Resource {
 	public static BufferedImage RBdark_B,RBdark_R,RBdark_R1,RBdark_S0,RBdark_S1,RBdark_W0;
 	public static BufferedImage RGbright_B,RGbright_R,RGbright_R1,RGbright_S0,RGbright_S1,RGbright_W0;
 	public static BufferedImage RGdark_B,RGdark_R,RGdark_R1,RGdark_S0,RGdark_S1,RGdark_W0;
-	public static BufferedImage ScreenBG;
+	public static BufferedImage Wolf1,ScreenBG;
 	
 	static{
 		try{
@@ -206,7 +206,7 @@ public class Resource {
 			RGdark_S1 = ImageIO.read(cloader.getResource("image/RGdark_S1.png"));
 			RGdark_W0 = ImageIO.read(cloader.getResource("image/RGdark_W0.png"));
 			
-			
+			Wolf1 = ImageIO.read(cloader.getResource("image/Wolf1.png"));
 		}
 		catch(Exception e){
 //			BlueButton,BrightButton,DarkButton,GreenButton,RedButton
