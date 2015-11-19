@@ -11,7 +11,6 @@ public class Wolf implements IRenderable{
 	private static int WolfIndex;
 	private static int WolfPoint;
 	private static boolean destroyed;
-	private static boolean visible;
 	private static int x;
 	private static int y;
 	private static int speed;
@@ -21,7 +20,6 @@ public class Wolf implements IRenderable{
 		this.WolfIndex = 0;
 		this.WolfPoint = WolfPoint;
 		this.destroyed=false;
-		this.visible=true;
 		this.speed = speed;
 		this.x=x;
 		this.y=y;
@@ -82,26 +80,15 @@ public class Wolf implements IRenderable{
 	public static void setSpeed(int speed) {
 		Wolf.speed = speed;
 	}
+	
+	public boolean collide(Sheep sheep){
+		if(this.x==500) return true;
+		else return false;
+	}
 
-	public static int randomGenWolf(int round){
-		int[] genWolf = {1,2,3,4};
-		int[] wolfweight = {(50-((int)(0.25*round))),(35-((int)(0.1*round))),(10+((int)(0.1*round))),(5+((int)(0.2*round)))}; 
-		int totalweight=0;
-		for(int a : wolfweight){
-			totalweight += a;
-		}
-		
-		ArrayList<Integer>weightwolf = new ArrayList<Integer>();
-		int currentwolf=0;
-		while(currentwolf<genWolf.length){
-			for(int i=0;i<wolfweight[currentwolf];i++){
-				weightwolf.add(weightwolf.size(),genWolf[currentwolf]);
-			}
-			currentwolf++;
-		}
-		
-		int randomnumber = (int)(Math.random()*totalweight);
-		return weightwolf.get(randomnumber);
+	
+	public static void update(){
+		x -= speed;
 	}
 	
 	@Override
@@ -114,7 +101,7 @@ public class Wolf implements IRenderable{
 
 	@Override
 	public boolean IsVisible() {
-		return visible;
+		return true;
 	}
 
 	@Override

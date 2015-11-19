@@ -36,7 +36,6 @@ public class Main {
 			}
 			gc.repaint();
 			gl.logicUpdate();
-			InputUtility.Updatestate();
 		}
 	}
 }

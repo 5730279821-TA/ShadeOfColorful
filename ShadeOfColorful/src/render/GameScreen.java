@@ -10,6 +10,7 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JComponent;
 
+import entity.GameLogic;
 import entity.Sheep;
 
 public class GameScreen extends JComponent {
@@ -72,6 +73,7 @@ public class GameScreen extends JComponent {
 			public void keyPressed(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 					Sheep.setSheepIndex(1);
+					GameLogic.KillWolf(Sheep.getSheepColor());
 				}
 				if (e.getKeyCode() == KeyEvent.VK_Q) {
 					Button.update(0);

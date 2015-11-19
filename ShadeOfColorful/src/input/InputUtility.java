@@ -74,7 +74,7 @@ public class InputUtility {
 	}
 
 	public static void keyPressed(KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+		if (e.getKeyCode() == KeyEvent.VK_SPACE && space==false) {
 			InputUtility.setSpace(true);
 		}
 		if (e.getKeyCode() == KeyEvent.VK_Q) {
