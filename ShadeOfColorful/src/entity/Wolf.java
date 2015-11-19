@@ -3,6 +3,7 @@ package entity;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 
+import render.GameScreen;
 import render.IRenderable;
 import render.Resource;
 
@@ -95,7 +96,29 @@ public class Wolf implements IRenderable{
 	public void draw(Graphics2D g2d) {
 		if(isDestroyed()) g2d.drawImage(Resource.Wolf1,x+50,y-70,null);
 		else{
-		g2d.drawImage(Resource.Bbright_W0,this.x,this.y,null);
+		for(Wolf a : GameLogic.getWolves()){
+			if(a.getWolfColor()==0) g2d.drawImage(Resource.Black_W0,a.getX()+50,a.getY()-70,null);
+			else if(a.getWolfColor()==1) g2d.drawImage(Resource.Rbright_W0,a.getX()+50,a.getY()-70,null);
+			else if(a.getWolfColor()==2) g2d.drawImage(Resource.Rdark_W0,a.getX()+50,a.getY()-70,null);
+			else if(a.getWolfColor()==3) g2d.drawImage(Resource.Bbright_W0,a.getX()+50,a.getY()-70,null);
+	        else if(a.getWolfColor()==4) g2d.drawImage(Resource.Bdark_W0,a.getX()+50,a.getY()-70,null);
+			else if(a.getWolfColor()==5) g2d.drawImage(Resource.Gbright_W0,a.getX()+50,a.getY()-70,null);
+			else if(a.getWolfColor()==6) g2d.drawImage(Resource.Gdark_W0,a.getX()+50,a.getY()-70,null);
+			else if(a.getWolfColor()==7) g2d.drawImage(Resource.RBbright_W0,a.getX()+50,a.getY()-70,null);
+			else if(a.getWolfColor()==8) g2d.drawImage(Resource.RGbright_W0,a.getX()+50,a.getY()-70,null);
+			else if(a.getWolfColor()==9) g2d.drawImage(Resource.GBbright_W0,a.getX()+50,a.getY()-70,null);
+			else if(a.getWolfColor()==10) g2d.drawImage(Resource.RBdark_W0,a.getX()+50,a.getY()-70,null);
+			else if(a.getWolfColor()==11) g2d.drawImage(Resource.RGdark_W0,a.getX()+50,a.getY()-70,null);
+			else if(a.getWolfColor()==12) g2d.drawImage(Resource.GBdark_W0,a.getX()+50,a.getY()-70,null);
+			else if(a.getWolfColor()==13) g2d.drawImage(Resource.RGBbright_W0,a.getX()+50,a.getY()-70,null);
+			else if(a.getWolfColor()==14) g2d.drawImage(Resource.RGBdark_W0,a.getX()+50,a.getY()-70,null);
+			else if(a.getWolfColor()==15) g2d.drawImage(Resource.RbrightGdark_W0,a.getX()+50,a.getY()-70,null);
+			else if(a.getWolfColor()==16) g2d.drawImage(Resource.RdarkBbright_W0,a.getX()+50,a.getY()-70,null);
+			else if(a.getWolfColor()==17) g2d.drawImage(Resource.GdarkBbright_W0,a.getX()+50,a.getY()-70,null);
+			else if(a.getWolfColor()==18) g2d.drawImage(Resource.RdarkGbright_W0,a.getX()+50,a.getY()-70,null);
+			else if(a.getWolfColor()==19) g2d.drawImage(Resource.RbrightBdark_W0,a.getX()+50,a.getY()-70,null);
+			else if(a.getWolfColor()==20) g2d.drawImage(Resource.GbrightBdark_W0,a.getX()+50,a.getY()-70,null);
+		}
 		}
 	}
 
