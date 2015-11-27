@@ -9,6 +9,10 @@ public class RenderableHolder {
 	private static final RenderableHolder instance = new RenderableHolder();
 	private List<IRenderable> entities = new CopyOnWriteArrayList<>();
 	
+	public RenderableHolder() {
+
+	}
+	
 	public static RenderableHolder getInstance(){
 		return instance;
 	}

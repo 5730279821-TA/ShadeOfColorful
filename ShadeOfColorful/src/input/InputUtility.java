@@ -14,6 +14,7 @@ public class InputUtility {
 	private static boolean bright = false;
 	private static boolean dark = false;
 	private static boolean space = false;
+	
 
 	// getter & setter
 

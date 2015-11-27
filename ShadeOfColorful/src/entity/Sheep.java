@@ -23,7 +23,7 @@ public class Sheep implements IRenderable {
 		this.state = 0;
 
 	}
-
+	
 	public static int getSheepColor() {
 		return SheepColor;
 	}
@@ -167,7 +167,7 @@ public class Sheep implements IRenderable {
 
 	}
 
-	public static void Update() {
+	public static  void Update() {
 		Sheep.setColor(Sheep.state);
 //		System.out.println(" Color is " + getSheepColor() + " state is "+ getState());
 	}
