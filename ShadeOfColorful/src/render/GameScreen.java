@@ -31,6 +31,7 @@ public class GameScreen extends JComponent {
 					try {
 						Thread.sleep(100);
 						Sheep.setSheepIndex(0);
+						Sheep.setColor(0);
 					} catch (InterruptedException r) {
 						// e.printStackTrace();
 					}

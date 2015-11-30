@@ -1,5 +1,6 @@
 package entity;
 
+import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -21,6 +22,7 @@ public class GameLogic {
 //	private static final int SPAWN_DELAY = 40;
 	private int spawnDelayCounter = (int)Math.ceil((Math.random()))*90;
 	private int roundstate=1;
+	
 
 	public GameLogic() {
 		sheep = new Sheep();
@@ -108,24 +110,21 @@ public class GameLogic {
 	public void setRoundstate(int roundstate) {
 		this.roundstate = roundstate;
 	}
+	
 
 	public void WolfRoundGen() {
-		
+			
 //			for(int i=0;i<10+(2*(roundstate-1));i++){
-				
 				for(int j=0;j<randomGenWolf(roundstate);j++){
-						if(roundstate==1){
-							int colorlist[] = {1,3,5};
-//							(1230-(((int)Math.ceil((Math.random()*2))+2)*100)), (300+(int)(Math.random()*21)))
-								Wolf a = new Wolf(colorlist[(int)(Math.random()*(colorlist.length))],100, 2, 1230, (300+(int)(Math.random()*21)));
-								wolves.add(a);
-								RenderableHolder.getInstance().getRenderable().add(a);
-								try {
-									Thread.sleep(10);
-								} catch (Exception e) {
-									// TODO: handle exception
-								}
-							}
+//							if(roundstate==1){
+								int colorlist[] = {1,3,5,2,4,6,7,8,9,10,11,12,13,14};
+//									(1230-(((int)Math.ceil((Math.random()*2))+2)*100)), (300+(int)(Math.random()*21)))
+								int genborn = (1230-(((int)Math.ceil((Math.random()*2))+2)*100));
+								if(genborn<=925)  genborn=1230;
+									Wolf a = new Wolf(colorlist[(int)(Math.random()*(colorlist.length))],100, 2,genborn , (300+(int)(Math.random()*21)));
+									wolves.add(a);
+									RenderableHolder.getInstance().getRenderable().add(a);	
+//							}
 						
 //						else if(roundstate==2){
 //							int colorlist[] = {1,2,3,4,5,6};
@@ -197,7 +196,8 @@ public class GameLogic {
 		int randomnumber = (int)(Math.random()*totalweight);
 		int Wgen = weightwolf.get(randomnumber);
 		System.out.println(Wgen);
-		return Wgen;
+//		return Wgen;
+		return 1;
 	}
 	
 	public static void KillWolf(int color){
@@ -211,7 +211,6 @@ public class GameLogic {
 	public void logicUpdate() {
 		
 			for(Wolf a :wolves){
-//				System.out.println(wolves.size());
 				a.update();
 				if(a.collide(sheep) && !a.isDestroyed()){
 					System.out.println("Collide");		
@@ -219,28 +218,30 @@ public class GameLogic {
 					RenderableHolder.getInstance().getRenderable().remove(a);
 				}
 				if(a.isDestroyed()){
-					int deadtime=100;
-					while(true){
-					if(deadtime==0){
-					wolves.remove(a);
-					RenderableHolder.getInstance().getRenderable().remove(a);
-					return;
+					new Thread(new Runnable() {
+						@Override
+						public void run() {
+							try {
+								Thread.sleep(40);
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+							wolves.remove(a);
+							RenderableHolder.getInstance().getRenderable().remove(a);
+						}
+					}).start();
 					}
-					deadtime--;
-					}
-				}
-			}
+			}		
 			
 			--spawnDelayCounter;
 			if(spawnDelayCounter==0){
 					WolfRoundGen();
-//					System.out.println("Gen Wolf");
-					spawnDelayCounter=(int)Math.ceil((Math.random()))*90;
+					spawnDelayCounter=((int)(Math.ceil((Math.random()*2)))+1)*15;
 				}
 
 			   
 			}
 			
-	
-
 }
+
