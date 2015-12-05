@@ -21,7 +21,7 @@ public class Sheep implements IRenderable {
 		this.SheepIndex = 0;
 		this.IsShot = false;
 		this.state = 0;
-
+		this.Score = 0;
 	}
 	
 	public static int getSheepColor() {
