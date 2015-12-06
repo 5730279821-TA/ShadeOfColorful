@@ -7,9 +7,6 @@ import javax.imageio.ImageIO;
 
 public class Resource {
 	public static final Font standardFont = new Font("Tahoma",Font.BOLD,30);
-	//not complete
-//	public static String[] index_S0 = {"Black_S0","Rbright_S0","Bbright_S0","Bdark_S0","Gbright_S0","Gdark_S0"};
-//	public static String[] index_S1 = new String[21];
 	
 	
 	//set1
@@ -40,6 +37,7 @@ public class Resource {
 	public static BufferedImage RGbright_B,RGbright_R,RGbright_R1,RGbright_S0,RGbright_S1,RGbright_W0;
 	public static BufferedImage RGdark_B,RGdark_R,RGdark_R1,RGdark_S0,RGdark_S1,RGdark_W0;
 	public static BufferedImage Wolf1,ScreenBG;
+
 	
 	static{
 		try{
@@ -207,6 +205,7 @@ public class Resource {
 			RGdark_W0 = ImageIO.read(cloader.getResource("image/RGdark_W0.png"));
 			
 			Wolf1 = ImageIO.read(cloader.getResource("image/Wolf1.png"));
+			
 		}
 		catch(Exception e){
 //			BlueButton,BrightButton,DarkButton,GreenButton,RedButton

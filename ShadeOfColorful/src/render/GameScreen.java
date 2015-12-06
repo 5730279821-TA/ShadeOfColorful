@@ -9,11 +9,12 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JComponent;
+import javax.swing.JPanel;
 
 import entity.GameLogic;
 import entity.Sheep;
 
-public class GameScreen extends JComponent {
+public class GameScreen extends JPanel {
 
 	public GameScreen() {
 		this.setDoubleBuffered(true);
