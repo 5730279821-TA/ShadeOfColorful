@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.swing.JFrame;
 
+import render.AudioUtility;
 import render.GameScreen;
 import render.GameWindow;
 import entity.GameLogic;
@@ -27,6 +28,7 @@ public class Main {
 		gc = new GameScreen();
 		gl = GameLogic.getInstance();
 		frame = new GameWindow(gt);
+		AudioUtility.playSound("Intro");
 		// frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// frame.setResizable(false);
 		// frame.add(gc);

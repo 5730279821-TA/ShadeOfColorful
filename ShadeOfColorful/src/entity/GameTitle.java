@@ -1,5 +1,6 @@
 package entity;
 
+import java.applet.AudioClip;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
@@ -18,6 +19,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import render.AudioUtility;
 import render.GameScreen;
 import render.GameWindow;
 
@@ -27,14 +29,15 @@ public class GameTitle extends JPanel{
 	private static JLabel Stbn = new JLabel();
 	private static JLabel Hgbn = new JLabel();
 	private static JLabel Abbn = new JLabel();
-	private static int eyestate=1;
+	private static int eyestate=1,ShadeX,ShadeY,OfX,OfY,ColX,ColY;
 
 	public GameTitle() {
 		this.setPreferredSize(new Dimension(1280, 720));
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		Stbn.setBorder(BorderFactory.createEmptyBorder(250, 700, 80, 0));
-		Hgbn.setBorder(BorderFactory.createEmptyBorder(0, 700, 80, 0));
-		Abbn.setBorder(BorderFactory.createEmptyBorder(0, 700, 80, 0));
+		this.setBorder(BorderFactory.createEmptyBorder(250,700,0,0));
+		Stbn.setBorder(BorderFactory.createEmptyBorder(0, 0, 80, 0));
+		Hgbn.setBorder(BorderFactory.createEmptyBorder(0, 0, 80, 0));
+		Abbn.setBorder(BorderFactory.createEmptyBorder(0, 0, 80, 0));
 		ImageIcon St1 = new ImageIcon("image/Start1.png");
 		ImageIcon St0 = new ImageIcon("image/Start0.png");
 		ImageIcon Hg1 = new ImageIcon("image/Hg1.png");
@@ -47,7 +50,7 @@ public class GameTitle extends JPanel{
 		this.add(Stbn);
 		this.add(Hgbn);
 		this.add(Abbn);
-
+		
 		Stbn.addMouseListener(new MouseListener() {
 
 			@Override
@@ -70,13 +73,15 @@ public class GameTitle extends JPanel{
 
 			@Override
 			public void mouseEntered(MouseEvent e) {
+				System.out.println(eyestate);
 				eyestate=0;
 				Stbn.setIcon(St1);
 			}
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Main.Main.frame.ChangeFrame(Main.Main.gc);
+				AudioUtility.playSound("Click");
+//				Main.Main.frame.ChangeFrame(Main.Main.gc);
 				// Main.Main.Gameloop();
 			}
 		});
@@ -103,14 +108,14 @@ public class GameTitle extends JPanel{
 
 			@Override
 			public void mouseEntered(MouseEvent e) {
+				System.out.println(eyestate);
 				eyestate=1;
 				Hgbn.setIcon(Hg1);
-
 			}
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				// TODO Auto-generated method stub
+				AudioUtility.playSound("Click");
 
 			}
 		});
@@ -137,19 +142,23 @@ public class GameTitle extends JPanel{
 
 			@Override
 			public void mouseEntered(MouseEvent e) {
+				System.out.println(eyestate);
 				eyestate=2;
 				Abbn.setIcon(Ab1);
-
 			}
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				// TODO Auto-generated method stub
+				AudioUtility.playSound("Click");
 
 			}
 		});
 	}
-
+	
+	public void textmove(){
+		
+	}
+	
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -171,7 +180,6 @@ public class GameTitle extends JPanel{
 		if(eyestate==0) g.drawImage(Eu,400,451, null);
 		else if(eyestate==1) g.drawImage(Em,404,450, null);
 		else if (eyestate==2) g.drawImage(Ed,405,444, null);
-		
 	}
 
 }
