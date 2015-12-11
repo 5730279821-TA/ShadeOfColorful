@@ -33,6 +33,7 @@ public class GameTitle extends JPanel{
 	private static int eyestate=1,ShadeX,ShadeY,OfX,OfY,ColX,ColY;
 
 	public GameTitle() {
+		this.setDoubleBuffered(true);
 		AudioUtility.playSound("Intro");
 		this.setPreferredSize(new Dimension(1280, 720));
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -141,8 +142,7 @@ public class GameTitle extends JPanel{
 		g.drawImage(Iof, 470, 70, null);
 		g.drawImage(Icolorful, 630, 70, null);
 		if(eyestate==0) g.drawImage(Eu,400,451, null);
-		else if(eyestate==1) g.drawImage(Em,404,450, null);
-		else if (eyestate==2) g.drawImage(Ed,405,444, null);
+		else if (eyestate==1) g.drawImage(Ed,405,444, null);
 	}
 
 }

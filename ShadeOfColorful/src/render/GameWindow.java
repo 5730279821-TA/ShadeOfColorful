@@ -3,6 +3,8 @@ package render;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import entity.GameTitle;
+
 public class GameWindow extends JFrame {
 	private JPanel currentFrame;
 
@@ -20,6 +22,7 @@ public class GameWindow extends JFrame {
 	public  void switchScene(JPanel frame) {
 		getContentPane().removeAll();
 		this.currentFrame = frame;
+		AudioUtility.stopSound("Intro");
 		getContentPane().add(frame);
 		getContentPane().validate();
 		pack();
