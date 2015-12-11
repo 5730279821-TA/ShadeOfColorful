@@ -2,6 +2,7 @@ package entity;
 
 import java.applet.AudioClip;
 import java.awt.Dimension;
+import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -34,7 +35,7 @@ public class GameTitle extends JPanel{
 	public GameTitle() {
 		this.setPreferredSize(new Dimension(1280, 720));
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		this.setBorder(BorderFactory.createEmptyBorder(250,700,0,0));
+		this.setBorder(BorderFactory.createEmptyBorder(350,700,0,0));
 		Stbn.setBorder(BorderFactory.createEmptyBorder(0, 0, 80, 0));
 		Hgbn.setBorder(BorderFactory.createEmptyBorder(0, 0, 80, 0));
 		Abbn.setBorder(BorderFactory.createEmptyBorder(0, 0, 80, 0));
@@ -42,14 +43,12 @@ public class GameTitle extends JPanel{
 		ImageIcon St0 = new ImageIcon("image/Start0.png");
 		ImageIcon Hg1 = new ImageIcon("image/Hg1.png");
 		ImageIcon Hg0 = new ImageIcon("image/Hg0.png");
-		ImageIcon Ab1 = new ImageIcon("image/Ab1.png");
-		ImageIcon Ab0 = new ImageIcon("image/Ab0.png");
 		Stbn.setIcon(St0);
 		Hgbn.setIcon(Hg0);
-		Abbn.setIcon(Ab0);
+
 		this.add(Stbn);
 		this.add(Hgbn);
-		this.add(Abbn);
+
 		
 		Stbn.addMouseListener(new MouseListener() {
 
@@ -73,7 +72,6 @@ public class GameTitle extends JPanel{
 
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				System.out.println(eyestate);
 				eyestate=0;
 				Stbn.setIcon(St1);
 			}
@@ -81,8 +79,7 @@ public class GameTitle extends JPanel{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				AudioUtility.playSound("Click");
-//				Main.Main.frame.ChangeFrame(Main.Main.gc);
-				// Main.Main.Gameloop();
+				GameManager.rungame(new GameScreen());
 			}
 		});
 
@@ -108,7 +105,6 @@ public class GameTitle extends JPanel{
 
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				System.out.println(eyestate);
 				eyestate=1;
 				Hgbn.setIcon(Hg1);
 			}
@@ -120,39 +116,6 @@ public class GameTitle extends JPanel{
 			}
 		});
 
-		Abbn.addMouseListener(new MouseListener() {
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				Abbn.setIcon(Ab0);
-
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				System.out.println(eyestate);
-				eyestate=2;
-				Abbn.setIcon(Ab1);
-			}
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				AudioUtility.playSound("Click");
-
-			}
-		});
 	}
 	
 	public void textmove(){

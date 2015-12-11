@@ -1,69 +1,38 @@
 package entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.swing.JPanel;
 
+import render.AudioUtility;
 import render.GameScreen;
 import render.GameWindow;
-import render.RenderableHolder;
-
 
 public class GameManager {
-	private static final int REFRESH_DELAY = 10;
-	public static final int TICK_PER_SECONDS = 1000/REFRESH_DELAY;
-	
-	private static GameTitle titleScene;
-	private static GameScreen gameScreen;
-	private static GameWindow gameWindow;
-	private static JPanel nextScene = null;
-	
-	public static void runGame(GameLogic gameLogic){
-		titleScene = new GameTitle();
+	public static GameWindow frame;
+	public static GameLogic gl;
+
+	public static void rungame(JPanel gamePanel) {
 		
-		if(gameLogic instanceof RenderableHolder){
-			gameScreen = new GameScreen((RenderableHolder)gameLogic);
-		}else{
-			gameScreen = new GameScreen(new RenderableHolder() {
-				private List<IRenderableObject> emptyList = new ArrayList<IRenderableObject>(0);
-				@Override
-				public List<IRenderableObject> getSortedRenderableObject() {
-					return emptyList;
-				}
-			});
-		}
 		
-		gameWindow = new GameWindow(titleScene);
-		
-		while(true){
+		if(gamePanel instanceof GameScreen){
+			frame = new GameWindow(gamePanel);
+//		frame.switchScene(gamePanel);
+		gl = GameLogic.getInstance();
+		while (true) {
 			try {
-				Thread.sleep(REFRESH_DELAY);
+				Thread.sleep(20);
 			} catch (InterruptedException e) {
-				e.printStackTrace();
+				 e.printStackTrace();
 			}
-			gameWindow.getCurrentScene().repaint();
-			if(gameWindow.getCurrentScene() instanceof GameScreen){
-				gameLogic.logicUpdate();
-				InputUtility.postUpdate();
-			}
-			if(nextScene != null){
-				if(gameWindow.getCurrentScene() instanceof GameScreen)
-					gameLogic.onExit();
-				gameWindow.switchScene(nextScene);
-				if(nextScene instanceof GameScreen)
-					gameLogic.onStart();
-				nextScene = null;
-			}
+			gamePanel.repaint();
+			gl.logicUpdate();
 		}
-	}
-	
-	public static void goToTitle(){
-		nextScene = titleScene;
-	}
-	
-	public static void newGame(){
-		nextScene = gameScreen;
-	}
+		}
+		else if(gamePanel instanceof GameTitle){
+		frame = new GameWindow(gamePanel);
+		AudioUtility.playSound("Intro");
+		}
+		
+		}
+
 	
 }

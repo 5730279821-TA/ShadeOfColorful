@@ -76,6 +76,7 @@ public class GameScreen extends JPanel {
 				if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 					Sheep.setSheepIndex(1);
 					GameLogic.KillWolf(Sheep.getSheepColor());
+					AudioUtility.playSound("Attack");
 				}
 				if (e.getKeyCode() == KeyEvent.VK_Q) {
 					Button.update(0);
