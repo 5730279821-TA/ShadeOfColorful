@@ -117,9 +117,7 @@ public class GameLogic {
 		int genborn = (1230 - (((int) Math.ceil((Math.random() * 2)) + 2) * 100));
 		if (genborn <= 925)
 			genborn = 1230;
-		Wolf a = new Wolf(
-				colorlist[(int) (Math.random() * (colorlist.length))], 10, 2,
-				genborn, (300 + (int) (Math.random() * 21)));
+		Wolf a = new Wolf(colorlist[(int) (Math.random() * (colorlist.length))], 10, 1,genborn, (300 + (int) (Math.random() * 21)));
 		wolves.add(a);
 		RenderableHolder.getInstance().getRenderable().add(a);
 		// }
