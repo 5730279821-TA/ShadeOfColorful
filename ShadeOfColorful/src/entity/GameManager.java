@@ -8,29 +8,40 @@ import render.GameWindow;
 
 public class GameManager {
 	public static GameWindow frame;
+	public static GameScreen gc;
+	public static GameTitle gt;
 	public static GameLogic gl;
+	public static JPanel nextScene = null;
 
-	public static void rungame(JPanel gamePanel) {
+	public static void rungame() {
 		
-		
-		if(gamePanel instanceof GameScreen){
-			frame = new GameWindow(gamePanel);
-//		frame.switchScene(gamePanel);
+		gt = new GameTitle();
+		gc = new GameScreen();
 		gl = GameLogic.getInstance();
-		while (true) {
+		frame = new GameWindow(gt);
+	
+		while(true){
 			try {
 				Thread.sleep(20);
 			} catch (InterruptedException e) {
-				 e.printStackTrace();
+				e.printStackTrace();
 			}
-			gamePanel.repaint();
-			gl.logicUpdate();
+			frame.getCurrentScene().repaint();
+			
+			if(frame.getCurrentScene() instanceof GameScreen){
+				gl.logicUpdate();
+			}
+//			if(nextScene != null){
+//				if(frame.getCurrentScene() instanceof GameScreen){
+//					
+//				}
+//				if(nextScene instanceof GameScreen){
+//					
+//				}
+//				nextScene=null;
+//			}
 		}
-		}
-		else if(gamePanel instanceof GameTitle){
-		frame = new GameWindow(gamePanel);
-		AudioUtility.playSound("Intro");
-		}
+		
 		
 		}
 

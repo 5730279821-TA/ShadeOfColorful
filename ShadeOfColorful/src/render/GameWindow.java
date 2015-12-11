@@ -17,8 +17,8 @@ public class GameWindow extends JFrame {
 		this.currentFrame.requestFocus();
 	}
 
-	public void switchScene(JPanel frame) {
-		getContentPane().remove(currentFrame);
+	public  void switchScene(JPanel frame) {
+		getContentPane().removeAll();
 		this.currentFrame = frame;
 		getContentPane().add(frame);
 		getContentPane().validate();

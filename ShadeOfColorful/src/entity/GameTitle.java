@@ -33,6 +33,7 @@ public class GameTitle extends JPanel{
 	private static int eyestate=1,ShadeX,ShadeY,OfX,OfY,ColX,ColY;
 
 	public GameTitle() {
+		AudioUtility.playSound("Intro");
 		this.setPreferredSize(new Dimension(1280, 720));
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		this.setBorder(BorderFactory.createEmptyBorder(350,700,0,0));
@@ -45,7 +46,6 @@ public class GameTitle extends JPanel{
 		ImageIcon Hg0 = new ImageIcon("image/Hg0.png");
 		Stbn.setIcon(St0);
 		Hgbn.setIcon(Hg0);
-
 		this.add(Stbn);
 		this.add(Hgbn);
 
@@ -79,7 +79,7 @@ public class GameTitle extends JPanel{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				AudioUtility.playSound("Click");
-				GameManager.rungame(new GameScreen());
+				GameManager.frame.switchScene(new GameScreen());
 			}
 		});
 

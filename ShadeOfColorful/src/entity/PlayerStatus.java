@@ -7,10 +7,15 @@ import java.awt.Graphics2D;
 import render.IRenderable;
 
 public class PlayerStatus implements IRenderable {
-	Sheep sheep = new Sheep();
-
+	private Sheep sheep = new Sheep();
+	private static boolean win;
+	
 	public PlayerStatus() {
-
+		this.win=false;
+	}
+	
+	public static  boolean isWin() {
+		return win;
 	}
 
 	@Override
