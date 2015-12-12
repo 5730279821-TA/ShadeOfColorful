@@ -83,7 +83,7 @@ public class Wolf implements IRenderable{
 	}
 
 	public boolean collide(Sheep sheep){
-		if(this.x==500) return true;
+		if(this.x<=500) return true;
 		else return false;
 	}
 
